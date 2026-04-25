@@ -123,9 +123,7 @@ from pyspark.sql.functions import explode
 from pyspark.sql import functions as f
 df_agg2=df_agg1.select("Student_name","Subjects")
 df_agg2=df_agg2.select("Student_name", explode("Subjects").alias("Sub"))
-# df_agg2=df_agg1.groupBy("Student_name").agg(
-#     f.explode("Subjects").alias("Sub"),
-# )
+
 display(df_agg2)
 
 # COMMAND ----------

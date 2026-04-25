@@ -57,10 +57,6 @@ else:
 #sum of values in str
 n=123456
 print(sum(int(d) for d in str(n)))
-# for i in str(n):
-#     print(i)
-# print(sum(int(i) for i in str(n)))
-#sum of values in str
 
 # COMMAND ----------
 
@@ -68,11 +64,6 @@ print(sum(int(d) for d in str(n)))
 #checking palindrom 
 s = "madam"
 print("Palindrome" if s == s[::-1] else "Not Palindrome")
-
-# if s==s[::-1]:
-#     print("Palindrome")
-# else:
-#     print("Not Palindrome")
 
 # COMMAND ----------
 
@@ -82,7 +73,7 @@ def is_palindrome(s):
 
 text=input("enter a string:")
 
-if is_palindrome(text):8
+if is_palindrome(text):
     print("Palindrome")
 else:
     print("Not Palindrome")
@@ -122,11 +113,6 @@ print(out2)
 
 # COMMAND ----------
 
-d = [i for i in arr if i not in out]
-print(d)
-
-# COMMAND ----------
-
 # removing duplicates in list
 arr = [1,2,2,3,1]
 d=set(arr)
@@ -158,12 +144,6 @@ print(list(missing))  # [3]
 
 # COMMAND ----------
 
-arr = [1,2,4,5,9]
-missing = set(range(arr[0], arr[-1]+1))
-print(list(missing))
-
-# COMMAND ----------
-
 # removing inner lists
 lst = [[1,2],[3,4],[5]]
 l=[]
@@ -175,49 +155,6 @@ print(l)
 
 # COMMAND ----------
 
-# checking list inside the list
-lst = [[1, 2], [3, 4], [3, 5], 7, 5]
-result=[]
-for i in lst:
-    if type(i)==list:
-        for j in i:
-            result.append(j)
-    else:
-        result.append(i)
-print(result)
-
-res1=[]
-for i in result:
-    if i not in res1:
-        res1.append(i)  
-print(res1)
-
-# COMMAND ----------
-
-l=[1,2,3,1,1,2,3,4,5]
-d={}
-for i in l:
-    c=l.count(i)
-    d[i]=c
-print(d)
-
-# COMMAND ----------
-
-# DBTITLE 1,Fibonacci Series Using a Generator
-def fibonacci():
-    a,b=0,1
-    while True:
-        yield a
-        a,b=b,a+b
-gen=fibonacci()
-for _ in range(10):
-    print(next(gen), end=' ')
-
-#But if you never use i, _ makes code cleaner and more readable.
-
-
-# COMMAND ----------
-
 # DBTITLE 1,without using yield
 def fibonacci(n):
     a,b=0,1
@@ -225,33 +162,6 @@ def fibonacci(n):
         print(a, end=" ")
         a,b=b,a+b
 fibonacci(5)
-
-# COMMAND ----------
-
-l=range(0,3)
-print(l)
-
-# COMMAND ----------
-
-# DBTITLE 1,values stored in list
-def fibonacci(n):
-    a,b=0,1
-    l=[]
-    for _ in range(n):
-        l.append(a)
-        a,b=b,a+b
-    print(l)
-fibonacci(7)
-
-# COMMAND ----------
-
-n=8
-a,b=0,1
-count=0
-while count<n:
-    print(a, end=" ")
-    a,b=b,a+b
-    count+=1
 
 # COMMAND ----------
 
@@ -274,8 +184,6 @@ print(s)
 
 # DBTITLE 1,Sort a List Without Using the sort() Keyword (Bubble Sort)
 num=[7,4,7,36,7,6]
-# n=num.sort()
-# print(num)
 
 s_num=sorted(num)
 print(s_num)
@@ -285,39 +193,6 @@ print(s_num)
 l=["anilkaly","anilkalyan","anilkaxc","anilkal"]
 s=sorted(l,key=len)
 print(s)
-
-# COMMAND ----------
-
-arr=[11,2,33,54,5,6,7,28,9,10]
-n = len(arr)
-print(n)
-for i in range(n):
-    print(i, end=(""))
-    for j in range(0, n - i - 1):
-        #print(j, end=("")) 
-        if arr[j] > arr[j + 1]:
-            arr[j], arr[j + 1] = arr[j + 1], arr[j]
-print(arr)
-
-# COMMAND ----------
-
-# DBTITLE 1,Factorial of a Number
-def factorial(n):
-    if n == 0 or n == 1:
-        return 1
-    else:
-        return n * factorial(n - 1)
-
-num = int(input("Enter a number: "))
-print("Factorial:", factorial(num))
-
-# COMMAND ----------
-
-num=int(input("Enter a number: "))
-fact=1
-for i in range(1,num+1):
-    fact=fact*i
-print(fact)
 
 # COMMAND ----------
 
@@ -345,9 +220,6 @@ for word in words:
     else:
         frequency[word]=1
 print(frequency)
-# print("Word Frequency:")
-# for word, count in frequency.items():
-#     print(word, ":", count)
 
 # COMMAND ----------
 
@@ -376,7 +248,6 @@ print(small_val,large_val)
 
 arr=[11,2,2,33,54,5,6,7,28,9,10]
 
-
 n=len(arr)
 for i in range(n):
     for j in range (0, n-i-1):
@@ -400,12 +271,6 @@ def fibonacci(n):
         print(a, end=" ")
         a,b=b,a+b
 fibonacci(10)
-
-# COMMAND ----------
-
-a=[2,4,6,8,10,7]
-s = list(set(range(a[0], a[-1]+1)) - set(a))
-print(s)
 
 # COMMAND ----------
 

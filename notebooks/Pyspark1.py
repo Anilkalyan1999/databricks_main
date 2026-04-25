@@ -157,9 +157,6 @@ df21=df20.withColumn("mng_id",when(col("manager_id")=="-",col("empid")).otherwis
     .withColumn("is_emp",when(col("manager_id")=="-",lit(0)).otherwise(lit(1)))
 df21.show()
 
-# COMMAND ----------
-
-# DBTITLE 1,Cell 22
 df21_alias = df21.alias("a")
 df20_alias = df20.alias("b")
 df_new = df21_alias.join(df20_alias, on=(df21_alias.mng_id == df20_alias.empid), how="inner") \
@@ -172,9 +169,6 @@ df_new = df21_alias.join(df20_alias, on=(df21_alias.mng_id == df20_alias.empid),
     )
 df_new.show()
 
-# COMMAND ----------
-
-# DBTITLE 1,Fix AttributeError in cell 23
 from pyspark.sql.functions import desc
 
 df_new.orderBy(desc("manager_salary"), "is_emp", desc("salary")).select("empid").show()

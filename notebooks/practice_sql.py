@@ -205,8 +205,3 @@ df2.write.format("delta").mode("overwrite").saveAsTable("student_progress")
 
 # MAGIC %sql
 # MAGIC select Student_name,Subjects, rank() over(partition by Student_name order by Subjects desc) as rank from student_marks
-
-# COMMAND ----------
-
-# MAGIC %sql
-# MAGIC select Student_name, min(marks) as min_marks, max(marks) as max_marks from student_marks group by Student_name

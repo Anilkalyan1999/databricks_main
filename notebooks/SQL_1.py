@@ -27,11 +27,6 @@
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC select Country, count(*) from workspace.default.customers_100 group by Country HAVING count(*) > 1
-
-# COMMAND ----------
-
 # DBTITLE 1,Cell 3
 # MAGIC %sql
 # MAGIC select Company,Country,rn from ( select Company, Country, row_number() over(partition by Country order by Company) as rn from workspace.default.customers_100 ) t where rn > 1
@@ -40,8 +35,3 @@
 
 # MAGIC %sql
 # MAGIC delete from workspace.default.customers_100 where Country in (select Country from ( select Company, Country, row_number() over(partition by Country order by Company) as rn from workspace.default.customers_100) t where rn > 1)
-
-# COMMAND ----------
-
-# MAGIC %sql
-# MAGIC select * from workspace.default.customers_100
