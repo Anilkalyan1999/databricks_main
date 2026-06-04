@@ -119,6 +119,19 @@ display(df_agg1)
 
 # COMMAND ----------
 
+from pyspark.sql.functions import posexplode
+
+df23 = df_agg1.select("Student_name", "Subjects")
+
+df_agg23 = df23.select(
+    "Student_name",
+    posexplode("Subjects").alias("position", "Subject")
+)
+
+display(df_agg23)
+
+# COMMAND ----------
+
 from pyspark.sql.functions import explode
 from pyspark.sql import functions as f
 df_agg2=df_agg1.select("Student_name","Subjects")
